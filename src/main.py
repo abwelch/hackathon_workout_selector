@@ -13,14 +13,22 @@ def home():
 	return render_template('home.html', title='Home')
 
 
-@app.route('/register', methods=['GET'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-	return render_template('register.html', title='Register')
+	error = None
+	if flask.request.method == 'POST':
+		# verify values submitted adhere to standards
+		pass
+	return render_template('register.html', error=error)
 
 
-@app.route('/signin', methods=['GET'])
+@app.route('/signin', methods=['GET', 'POST'])
 def signin():
-	return render_template('signin.html', title='Sign In')
+	error = None
+	if flask.request.method == 'POST':
+		# check values submitted against database
+		pass
+	return render_template('signin.html', error=error)
 
 
 # run app
