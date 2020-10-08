@@ -12,5 +12,16 @@ app.config["DEBUG"] = True
 def home():
 	return render_template('home.html', title='Home')
 
+
+@app.route('/register', methods=['GET'])
+def register():
+	return render_template('register.html', title='Register')
+
+
+@app.route('/signin', methods=['GET'])
+def signin():
+	return render_template('signin.html', title='Sign In')
+
+
 # run app
 app.run()
