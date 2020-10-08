@@ -1,7 +1,7 @@
 #!/usr/bin/python3.8
 
 import flask
-import flask_jwt
+import flask_jwt_extended
 import werkzeug
 import mysql.connector
 import os
@@ -9,6 +9,11 @@ import os
 #config and set up flask
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
+
+# config JWT for the app
+
+app.config['JWT_SECRET_KEY'] = 'root'
+jwt = flask_jwt_extended.JWTManager(app)
 
 # get env vars for DB connections
 
@@ -135,12 +140,17 @@ def sign_in():
 
 	# attempt to log in
 	if ( verify_credentials(uname, pword) ):
-		resp = flask.jsonify(success=True)
+		access_token = flask_jwt_extended.create_access_token(identity=uname)
+		return flask.jsonify(access_token=access_token), 200
 	else:
-		resp = flask.jsonify(success=False)
-
-	return resp
+		return flask.jsonify({"msg":"Bad username or password"}), 401
 		
+
+@app.route('/protected', methods=['GET'])
+@flask_jwt_extended.jwt_required
+def protected():
+	curr_user = flask_jwt_extended.get_jwt_identity()
+	return flask.jsonify(logged_in_as=curr_user), 200
 
 # run app
 app.run()
