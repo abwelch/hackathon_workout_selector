@@ -1,21 +1,4 @@
-html {
-  height: 100%;
-}
-
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  height: 100%;
-}
-
-p {
-  color: hsl(263, 100%, 50%);
-}
-
-#page-content {
-  flex: 1 0 auto;
-}
-
-#sticky-footer {
-  flex-shrink: none;
+#BodyMap {
+  position: relative;
+  left: 100em;
 }
