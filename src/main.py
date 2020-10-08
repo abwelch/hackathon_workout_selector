@@ -2,7 +2,6 @@ import flask
 import werkzeug
 import mysql.connector
 import os
-from flask import render_template
 
 #config and set up flask
 app = flask.Flask(__name__)
