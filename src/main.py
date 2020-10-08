@@ -70,8 +70,6 @@ def missing_data(e):
 ### App Routes ####
 
 @app.route('/signup', methods=['POST'])
-
-
 def sign_up():
 	# get the json data from the request
 	try:
