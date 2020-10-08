@@ -11,9 +11,48 @@ router.get('/workouts', (req, res) => {
   res.render('workouts', { title: 'Workout Plans' });
 });
 
-/* GET tricep exercise page. */
+/* GET register exercise page. */
 router.get('/register', (req, res) => {
   res.render('register', { title: 'Registration' });
+});
+
+/* POST register plans page */
+router.post('/', async (req, res) => {
+  const { body } = req;
+
+  try {
+    await client.createUser({
+      profile: {
+        firstName: body.firstName,
+        lastName: body.lastName,
+        email: body.email,
+        login: body.email
+      },
+      credentials: {
+        password: {
+          value: body.password
+        }
+      }
+    });
+
+    res.redirect('/');
+  } catch ({ errorCauses }) {
+    const errors = {};
+
+    errorCauses.forEach(({ errorSummary }) => {
+      const [, field, error] = /^(.+?): (.+)$/.exec(errorSummary);
+      errors[field] = error;
+    });
+
+    res.render('register', {
+      errors,
+      fields: fields.map(field => ({
+        ...field,
+        error: errors[field.name],
+        value: body[field.name]
+      }))
+    });
+  }
 });
 
 /* GET pec exercise page. */
@@ -45,4 +84,5 @@ router.get('/biceps', (req, res) => {
 router.get('/triceps', (req, res) => {
   res.render('triceps', { title: 'Tricep Exercises' });
 });
+
 module.exports = router;

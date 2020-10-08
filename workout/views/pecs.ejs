@@ -1,25 +1,31 @@
 <%- include('partials/head.ejs')%>
-<head>
-  <!-- <link rel="stylesheet" href="Pecs.css"> --> 
- </head>
- <body>
- 
-   <h1>Pectoralis Major</h1>
-   <p id="Description">A thick and fan-shaped like muscle, the pectoralis major is essentially the main component of a male chest and lies beneath the breast tissue in women. Below this muscle lies the pecoralis minor. Responsible for the movement of the shoulder joint primarily, the pectoralis major has four major actions.</p>
-   <div id="Descriptions">
-   <p>1) Push Up <br> Get down on all fours, placing your hands slightly wider than your shoulders. Straighten your arms and legs. 
-     Lower your body until your chest nearly touches the floor. 
-     Pause, then push yourself back up. 
-     Repeat.  </p>
-   <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-     <p>2) Cross-Body Mountain Climber <br> Step 1. Get into pushup position, and raise one knee toward your chest. As it’s coming up, twist your hips to bring it toward your opposite elbow. Try to touch the elbow.
-     Step 2. Twist back, and repeat on the opposite side. Each knee touch counts as one rep.  </p>
-   <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-   <p>3) Dumbell Bench Press <br> Lie on the ground with your knees bent and feet flat on the floor. 
-     Have a dumbbell in each hand with a reverse grip and position your arms at 45-degrees from your body. 
-     Press the weights up and together above your chest, squeezing the muscles at the top of the movement.  </p>
-   <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-   </div>
- </body>
+
+<body>
+  <div class="container-fluid">
+    <header>
+      <%- include('partials/nav.ejs') %>
+    </header>
+    <h1 class="text-center">Pectoralis Major</h1>
+    <p id="Description">A thick and fan-shaped like muscle, the pectoralis major is essentially the main component of a
+      male chest and lies beneath the breast tissue in women. Below this muscle lies the pecoralis minor. Responsible
+      for the movement of the shoulder joint primarily, the pectoralis major has four major actions.</p>
+    <div id="Descriptions">
+      <p>1) Push Up <br> Get down on all fours, placing your hands slightly wider than your shoulders. Straighten your
+        arms and legs.
+        Lower your body until your chest nearly touches the floor.
+        Pause, then push yourself back up.
+        Repeat. </p>
+      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+      <p>2) Cross-Body Mountain Climber <br> Step 1. Get into pushup position, and raise one knee toward your chest. As
+        it’s coming up, twist your hips to bring it toward your opposite elbow. Try to touch the elbow.
+        Step 2. Twist back, and repeat on the opposite side. Each knee touch counts as one rep. </p>
+      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+      <p>3) Dumbell Bench Press <br> Lie on the ground with your knees bent and feet flat on the floor.
+        Have a dumbbell in each hand with a reverse grip and position your arms at 45-degrees from your body.
+        Press the weights up and together above your chest, squeezing the muscles at the top of the movement. </p>
+      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+    </div>
+  </div>
+</body>
 
 <%- include('partials/end.ejs')%>
