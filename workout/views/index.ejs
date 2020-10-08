@@ -8,46 +8,54 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel='stylesheet' type='text/css' href='/stylesheets/style.css' />
   <title> </title>
 </head>
 
-<header>
-  <%- include('partials/header') %>
-</header>
-
 <body>
-  <br>
-  <br>
-  <img src="body.jpg" usemap="#image-map" class="map">
+  <div class="container-fluid">
+    <header>
+      <%- include('partials/header') %>
+    </header>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-12 text-center">
+        <img src="body.jpg" usemap="#image-map" class="map rounded shadow">
+        <map name="image-map">
+          <area target="" alt="Pec" title="Pec" href="pecs.html" coords="130,150,195,151,211,117,169,104,130,116"
+            shape="poly">
+          <area target="" alt="Abs" title="Abs" href="abs.html" coords="143,155,187,158,188,230,143,232,141,178"
+            shape="poly">
+          <area target="" alt="Biceps" title="Biceps" href="" coords="97,142,119,139,114,186,89,177,95,154"
+            shape="poly">
+          <area target="" alt="Biceps" title="Biceps" href="" coords="216,155,233,145,250,177,225,186,222,167"
+            shape="poly">
+          <area target="" alt="Forearms " title="Forearms " href="" coords="77,186,99,195,82,237,60,234" shape="poly">
+          <area target="" alt="Forearms" title="Forearms" href="" coords="226,192,252,188,271,230,257,236" shape="poly">
+        </map>
+      </div>
+    </div>
 
-  <map name="image-map">
-    <area target="" alt="Pec" title="Pec" href="pecs.html" coords="130,150,195,151,211,117,169,104,130,116"
-      shape="poly">
-    <area target="" alt="Abs" title="Abs" href="abs.html" coords="143,155,187,158,188,230,143,232,141,178" shape="poly">
-    <area target="" alt="Biceps" title="Biceps" href="" coords="97,142,119,139,114,186,89,177,95,154" shape="poly">
-    <area target="" alt="Biceps" title="Biceps" href="" coords="216,155,233,145,250,177,225,186,222,167" shape="poly">
-    <area target="" alt="Forearms " title="Forearms " href="" coords="77,186,99,195,82,237,60,234" shape="poly">
-    <area target="" alt="Forearms" title="Forearms" href="" coords="226,192,252,188,271,230,257,236" shape="poly">
-  </map>
-
-  <script type="text/javascript">
-    $(function () {
-      $('.map').maphilight();
-    });
-  </script>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- Required scripts for Bootstrap. jQuery.js, Popper.js, Bootstrap.js-->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('.map').maphilight();
+      });
+    </script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Required scripts for Bootstrap. jQuery.js, Popper.js, Bootstrap.js-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+  </div>
 </body>
 
 </html>
