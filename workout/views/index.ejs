@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+  <link rel="stylesheet" href="style.css">
+
 <head>
   <!-- Meta tags -->
   <meta charset="utf-8">
@@ -12,6 +14,15 @@
   <title> </title>
 </head>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+
+<script type="text/javascript">
+  $(function () {
+    $('.map').maphilight();
+  });
+</script>
+
 <body>
   <div class="container-fluid">
     <header>
@@ -21,40 +32,31 @@
     <br>
     <div class="row">
       <div class="col-12 text-center">
-        <img src="body.jpg" usemap="#image-map" class="map rounded shadow">
+        <img id="BodyMap" src="body.jpg" usemap="#image-map" class="map">
         <map name="image-map">
-          <area target="" alt="Pec" title="Pec" href="pecs.html" coords="130,150,195,151,211,117,169,104,130,116"
-            shape="poly">
-          <area target="" alt="Abs" title="Abs" href="abs.html" coords="143,155,187,158,188,230,143,232,141,178"
-            shape="poly">
-          <area target="" alt="Biceps" title="Biceps" href="" coords="97,142,119,139,114,186,89,177,95,154"
-            shape="poly">
-          <area target="" alt="Biceps" title="Biceps" href="" coords="216,155,233,145,250,177,225,186,222,167"
-            shape="poly">
-          <area target="" alt="Forearms " title="Forearms " href="" coords="77,186,99,195,82,237,60,234" shape="poly">
-          <area target="" alt="Forearms" title="Forearms" href="" coords="226,192,252,188,271,230,257,236" shape="poly">
+          <area target="" alt="Pec" title="Pec" href="pecs.html" coords="127,105,185,103,210,117,203,147,164,150,129,149,120,126" shape="poly">
+    <area target="" alt="Abs" title="Abs" href="" coords="133,158,195,158,193,221,167,241,137,221" shape="poly">
+    <area target="" alt="Biceps" title="Biceps" href="" coords="214,137,237,142,246,177,223,184" shape="poly">
+    <area target="" alt="Biceps" title="Biceps" href="" coords="95,144,112,142,115,160,111,188,83,180,83,173" shape="poly">
+    <area target="" alt="Shoulders" title="Shoulders" href="" coords="96,129,99,108,112,94,121,101,116,132" shape="poly">
+    <area target="" alt="Shoulders" title="Shoulders" href="" coords="234,131,215,130,211,104,223,101,232,114" shape="poly">
+    <area target="" alt="Back" title="Back" href="" coords="409,99,447,99,494,100,498,153,491,205,454,224,416,215,405,163" shape="poly">
+    <area target="" alt="Triceps" title="Triceps" href="" coords="383,127,399,129,384,191,364,177" shape="poly">
+    <area target="" alt="Triceps" title="Triceps" href="" coords="503,119,524,132,537,177,528,188,519,189,503,154" shape="poly">
         </map>
       </div>
     </div>
 
-    <script type="text/javascript">
-      $(function () {
-        $('.map').maphilight();
-      });
-    </script>
+    
     <script type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Required scripts for Bootstrap. jQuery.js, Popper.js, Bootstrap.js-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
   </div>
 </body>
 
