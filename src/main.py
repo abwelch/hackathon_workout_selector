@@ -1,4 +1,7 @@
+#!/usr/bin/python3.8
+
 import flask
+import Flask-JWT
 import werkzeug
 import mysql.connector
 import os
@@ -7,27 +10,37 @@ import os
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
-@app.route('/', methods=['GET'])
-def home():
-	return render_template('home.html', title='Home')
+# get env vars for DB connections
+
+mysql_root_password = os.environ['MYSQL_ROOT_PASSWORD']
+mysql_user = os.environ['MYSQL_USER']
+mysql_host = os.environ['MYSQL_HOST']
+mysql_db = os.environ['MYSQL_DB']
+
+# configure the mysql conn
+mysql_config = {
+	'user': mysql_user,
+	'password': mysql_root_password,
+	'host': mysql_host,
+	'database': mysql_db
+}
+
+# connect to sql
+cnx = mysql.connector.connect(**config)
+
+#### Helper Functions ####
 
 
-@app.route('/register', methods=['GET', 'POST'])
+
+### App Routes ####
+
+@app.route('/signup', methods=['POST'])
 def register():
 	error = None
 	if flask.request.method == 'POST':
 		# verify values submitted adhere to standards
 		pass
 	return render_template('register.html', error=error)
-
-
-@app.route('/signin', methods=['GET', 'POST'])
-def signin():
-	error = None
-	if flask.request.method == 'POST':
-		# check values submitted against database
-		pass
-	return render_template('signin.html', error=error)
 
 
 # run app
