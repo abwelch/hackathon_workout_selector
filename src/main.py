@@ -61,11 +61,31 @@ def add_user(username:str, password:str, email:str) -> None:
 
 	return None
 
+# see if user credentials match
+def verify_credentials(username, password):
+	cursor = cnx.cursor()
+
+	query = "SELECT * FROM users WHERE username = '{}' and password = '{}'".format(username, password)
+
+	cursor.execute(query)
+	r = cursor.fetchone()
+
+	cursor.close()
+
+	if r == None:
+		return False # invalid credentials
+	else:
+		return True # valid credentials
+
 ### Error Handling ####
 
 @app.errorhandler(400)
 def missing_data(e):
 	return flask.jsonify(error=str(e)), 400
+
+@app.errorhandler(409)
+def user_already_exists(e):
+	return flask.jsonify(error=str(e)), 409
 
 ### App Routes ####
 
@@ -96,6 +116,31 @@ def sign_up():
 		resp = flask.jsonify(success=True)
 
 		return resp
+
+@app.route('/signin', methods=['GET'])
+def sign_in():
+	# get the json data from request
+	try: 
+		json_data = flask.request.json
+	except Exception as e:
+		flask.abort(400, description="Did not include all fields")
+
+	# make sure the data provided contains everythin
+	if ( "username" not in json_data ) or ( "password" not in json_data ):
+		flask.abort(400, description="Did not include all fields")
+
+	# extract the info
+	uname = json_data["username"]
+	pword = json_data["password"]
+
+	# attempt to log in
+	if ( verify_credentials(uname, pword) ):
+		resp = flask.jsonify(success=True)
+	else:
+		resp = flask.jsonify(success=False)
+
+	return resp
+		
 
 # run app
 app.run()
