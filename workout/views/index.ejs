@@ -1,63 +1,49 @@
 <!DOCTYPE html>
 <html>
-
-  <link rel="stylesheet" href="style.css">
-
-<head>
-  <!-- Meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel='stylesheet' type='text/css' href='/stylesheets/style.css' />
-  <title> </title>
-</head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
-
-<script type="text/javascript">
-  $(function () {
-    $('.map').maphilight();
-  });
-</script>
-
-<body>
-  <div class="container-fluid">
-    <header>
-      <%- include('partials/header') %>
-    </header>
-    <br>
-    <br>
-    <div class="row">
-      <div class="col-12 text-center">
-        <img id="BodyMap" src="body.jpg" usemap="#image-map" class="map">
-        <map name="image-map">
-          <area target="" alt="Pec" title="Pec" href="pecs.html" coords="127,105,185,103,210,117,203,147,164,150,129,149,120,126" shape="poly">
-    <area target="" alt="Abs" title="Abs" href="abs.html" coords="133,158,195,158,193,221,167,241,137,221" shape="poly">
-    <area target="" alt="Biceps" title="Biceps" href="bicep.html" coords="214,137,237,142,246,177,223,184" shape="poly">
-    <area target="" alt="Biceps" title="Biceps" href="bicep.html" coords="95,144,112,142,115,160,111,188,83,180,83,173" shape="poly">
-    <area target="" alt="Shoulders" title="Shoulders" href="shoulder.html" coords="96,129,99,108,112,94,121,101,116,132" shape="poly">
-    <area target="" alt="Shoulders" title="Shoulders" href="shoulder.html" coords="234,131,215,130,211,104,223,101,232,114" shape="poly">
-    <area target="" alt="Back" title="Back" href="back.html" coords="409,99,447,99,494,100,498,153,491,205,454,224,416,215,405,163" shape="poly">
-    <area target="" alt="Triceps" title="Triceps" href="tricep.html" coords="383,127,399,129,384,191,364,177" shape="poly">
-    <area target="" alt="Triceps" title="Triceps" href="tricep.html" coords="503,119,524,132,537,177,528,188,519,189,503,154" shape="poly">
-        </map>
-      </div>
-    </div>
-
-    
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
-      
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-  </div>
-</body>
-
+	<link rel="stylesheet" href="style.css">
+	<head>
+		<meta charset="utf-8">
+		<title>Login Form </title>
+		<style>
+		.login-form {
+			width: 300px;
+			margin: 0 auto;
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+		.login-form h1 {
+			text-align: center;
+			color: #4d4d4d;
+			font-size: 24px;
+			padding: 20px 0 20px 0;
+		}
+		.login-form input[type="password"],
+		.login-form input[type="text"] {
+			width: 100%;
+			padding: 15px;
+			border: 1px solid #dddddd;
+			margin-bottom: 15px;
+			box-sizing:border-box;
+		}
+		.login-form input[type="submit"] {
+			width: 100%;
+			padding: 15px;
+			background-color: #535b63;
+			border: 0;
+			box-sizing: border-box;
+			cursor: pointer;
+			font-weight: bold;
+			color: #ffffff;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="login-form">
+			<h1>Login</h1>
+			<form action="auth" method="POST">
+				<input type="text" name="username" placeholder="Username" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<input type="submit">
+			</form>
+		</div>
+	</body>
 </html>
