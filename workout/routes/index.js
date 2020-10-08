@@ -11,6 +11,11 @@ router.get('/workouts', (req, res) => {
   res.render('workouts', { title: 'Workout Plans' });
 });
 
+/* GET tricep exercise page. */
+router.get('/register', (req, res) => {
+  res.render('register', { title: 'Registration' });
+});
+
 /* GET pec exercise page. */
 router.get('/pecs', (req, res) => {
   res.render('pecs', { title: 'Pectoral Exercises' });
