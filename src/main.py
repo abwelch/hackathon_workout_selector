@@ -1,7 +1,7 @@
 #!/usr/bin/python3.8
 
 import flask
-import flask_jwt
+import flask_jwt_extended
 import werkzeug
 import mysql.connector
 import os
@@ -9,6 +9,11 @@ import os
 #config and set up flask
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
+
+# config JWT for the app
+
+app.config['JWT_SECRET_KEY'] = 'root'
+jwt = flask_jwt_extended.JWTManager(app)
 
 # get env vars for DB connections
 
@@ -61,11 +66,31 @@ def add_user(username:str, password:str, email:str) -> None:
 
 	return None
 
+# see if user credentials match
+def verify_credentials(username, password):
+	cursor = cnx.cursor()
+
+	query = "SELECT * FROM users WHERE username = '{}' and password = '{}'".format(username, password)
+
+	cursor.execute(query)
+	r = cursor.fetchone()
+
+	cursor.close()
+
+	if r == None:
+		return False # invalid credentials
+	else:
+		return True # valid credentials
+
 ### Error Handling ####
 
 @app.errorhandler(400)
 def missing_data(e):
 	return flask.jsonify(error=str(e)), 400
+
+@app.errorhandler(409)
+def user_already_exists(e):
+	return flask.jsonify(error=str(e)), 409
 
 ### App Routes ####
 
@@ -96,6 +121,36 @@ def sign_up():
 		resp = flask.jsonify(success=True)
 
 		return resp
+
+@app.route('/signin', methods=['GET'])
+def sign_in():
+	# get the json data from request
+	try: 
+		json_data = flask.request.json
+	except Exception as e:
+		flask.abort(400, description="Did not include all fields")
+
+	# make sure the data provided contains everythin
+	if ( "username" not in json_data ) or ( "password" not in json_data ):
+		flask.abort(400, description="Did not include all fields")
+
+	# extract the info
+	uname = json_data["username"]
+	pword = json_data["password"]
+
+	# attempt to log in
+	if ( verify_credentials(uname, pword) ):
+		access_token = flask_jwt_extended.create_access_token(identity=uname)
+		return flask.jsonify(access_token=access_token), 200
+	else:
+		return flask.jsonify({"msg":"Bad username or password"}), 401
+		
+
+@app.route('/protected', methods=['GET'])
+@flask_jwt_extended.jwt_required
+def protected():
+	curr_user = flask_jwt_extended.get_jwt_identity()
+	return flask.jsonify(logged_in_as=curr_user), 200
 
 # run app
 app.run()
