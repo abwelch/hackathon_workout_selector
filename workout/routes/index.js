@@ -70,30 +70,34 @@ router.get('/triceps', (req, res) => {
 
 /* GET create workout page. */
 router.get('/create_workout', (req, res) => {
-  res.render('create_workout', { title: 'Create Workout' });
+  res.render('create_workout', { title: 'Create Workout'});
 });
 
 /* POST create workout page */
-router.post('/register', (req, res) => {
+router.post('/create_workout', (req, res) => {
   const { body } = req;
-  var json = { 
+  // userID harded coded for now. needs to be properly pulled when authentication is finished
+  var json = JSON.stringify({ 
+                "userID": 1,
                 "workout_title": body.workout_title,
                 "workout_descr": body.workout_descr,
                 "exercise_title": body.exercise_title,
                 "exercise_descr": body.exercise_descr,
                 "exercise_sets": body.exercise_sets,
                 "exercise_reps": body.exercise_reps
-              };
+              });
+console.log(json)
 
   var options = {
-    url: "http://127.0.0.1:5000/signup",
+    url: "http://127.0.0.1:5000/create_workout",
     method: "POST",
     'headers': {'Content-Type': 'application/json'},
-    body: JSON.stringify(json)
+    body: json
   };
   request(options, function (error, response) {
     if (error) throw new Error(error);
     console.log(response.body)});
+
   res.render('create_workout', {title: "Create Workout"});
 });
 
