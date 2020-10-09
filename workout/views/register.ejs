@@ -1,52 +1,32 @@
 <%- include('partials/head.ejs')%>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up Form</title>
-  <link rel="stylesheet" href="normalize.css">
-  <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/main.css">
-</head>
+
+<link rel="stylesheet" href="normalize.css">
+<link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/main.css">
+
 <body>
+  <div class="container-fluid">
+  <header>
+    <%- include('partials/nav.ejs') %>
+  </header>
+  <form action="register" method="post">
 
-<form action="index.html" method="post">
+    <h1>Sign Up</h1>
 
-  <h1>Sign Up</h1>
-  
-  <fieldset>
-    <legend><span class="number">1</span>Your basic info</legend>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="user_name">
-    
-    <label for="mail">Email:</label>
-    <input type="email" id="mail" name="user_email">
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="user_password">
-    
-    <label>Age:</label>
-    <input type="radio" id="under_18" value="under_18" name="user_age"><label for="under_13" class="light">Under 18</label><br>
-    <input type="radio" id="over_18" value="over_18" name="user_age"><label for="over_13" class="light">18 or older</label>
-  </fieldset>
-  
-  <fieldset>
-    <legend><span class="number">2</span>Your profile</legend>
-    <label for="bio">About yourself:</label>
-    <textarea id="bio" name="user_bio"></textarea>
-  </fieldset>
-  <fieldset>
-  
-    <label>Interests:</label>
-    <input type="checkbox" id="MuscleDevelopment" value="MUSCLE" name="user_interest"><label class="light" for="Muscle Development">Muscle Development</label><br>
-      <input type="checkbox" id="WeightLoss" value="WEIGHT" name="user_interest"><label class="light" for="Weight Loss">Weight Loss</label><br>
-    <input type="checkbox" id="Idontknow" value="IDK" name="user_interest"><label class="light" for="Idontknow">I don't know</label>
-  
-  </fieldset>
-  <button type="submit">Sign Up</button>
-</form>
+    <fieldset>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="user_name">
 
+      <label for="mail">Email:</label>
+      <input type="email" id="mail" name="user_email">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="user_password">
+    </fieldset>
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
 </body>
-</html>
 
 <%- include('partials/end.ejs')%>

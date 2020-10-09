@@ -17,42 +17,15 @@ router.get('/register', (req, res) => {
 });
 
 /* POST register plans page */
-router.post('/', async (req, res) => {
-  const { body } = req;
-
-  try {
-    await client.createUser({
-      profile: {
-        firstName: body.firstName,
-        lastName: body.lastName,
-        email: body.email,
-        login: body.email
-      },
-      credentials: {
-        password: {
-          value: body.password
-        }
-      }
-    });
-
-    res.redirect('/');
-  } catch ({ errorCauses }) {
-    const errors = {};
-
-    errorCauses.forEach(({ errorSummary }) => {
-      const [, field, error] = /^(.+?): (.+)$/.exec(errorSummary);
-      errors[field] = error;
-    });
-
-    res.render('register', {
-      errors,
-      fields: fields.map(field => ({
-        ...field,
-        error: errors[field.name],
-        value: body[field.name]
-      }))
-    });
-  }
+router.post('/register', (req, res) => {
+  const { body } = req
+  var json = { 
+                username: body.user_name,
+                email: body.user_email,
+                password: body.user_password,
+                title: "back attack"
+              }
+  res.render('back', json);
 });
 
 /* GET pec exercise page. */
