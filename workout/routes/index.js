@@ -1,3 +1,4 @@
+const request = require('request');
 var express = require('express');
 var router = express.Router();
 
@@ -17,42 +18,24 @@ router.get('/register', (req, res) => {
 });
 
 /* POST register plans page */
-router.post('/', async (req, res) => {
+router.post('/register', (req, res) => {
   const { body } = req;
+  var json = { 
+                "username": body.user_name,
+                "email": body.user_email,
+                "password": body.user_password,
+              };
 
-  try {
-    await client.createUser({
-      profile: {
-        firstName: body.firstName,
-        lastName: body.lastName,
-        email: body.email,
-        login: body.email
-      },
-      credentials: {
-        password: {
-          value: body.password
-        }
-      }
-    });
-
-    res.redirect('/');
-  } catch ({ errorCauses }) {
-    const errors = {};
-
-    errorCauses.forEach(({ errorSummary }) => {
-      const [, field, error] = /^(.+?): (.+)$/.exec(errorSummary);
-      errors[field] = error;
-    });
-
-    res.render('register', {
-      errors,
-      fields: fields.map(field => ({
-        ...field,
-        error: errors[field.name],
-        value: body[field.name]
-      }))
-    });
-  }
+  var options = {
+    url: "http://127.0.0.1:5000/signup",
+    method: "POST",
+    'headers': {'Content-Type': 'application/json'},
+    body: JSON.stringify(json)
+  };
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body)});
+  res.render('back', {title: "Registration"});
 });
 
 /* GET pec exercise page. */
