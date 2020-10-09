@@ -5,6 +5,7 @@ import flask_jwt_extended
 import werkzeug
 import mysql.connector
 import os
+import json
 
 #config and set up flask
 app = flask.Flask(__name__)
@@ -34,6 +35,37 @@ mysql_config = {
 cnx = mysql.connector.connect(**mysql_config)
 
 #### Helper Functions ####
+
+def retrieve_all_workouts():
+	cursor = cnx.cursor()
+
+	query = "select * from workout_plans;"
+	cursor.execute(query)
+	plans = cursor.fetchall()
+
+	query = "select * from exercises;"
+	cursor.execute(query)
+	exercises = cursor.fetchall()
+
+	# this needs to be altered to properly nest array of jsons for the exercises within each workout
+	# current version will create entirely new workout json for each exercise related to a workout
+	# works fine for now since functionlity does not exist to add more than one exercise to a workout
+	full_workout = []
+	for plan_row in plans:
+		for ex_row in exercises:
+			if plan_row[0] == ex_row[5]:
+				entry = {
+					"upvotes": plan_row[1], 
+					"workout_title": plan_row[2], 
+					"workout_desc": plan_row[3], 
+					"exercise_title": ex_row[1], 
+					"exercise_desc": ex_row[2], 
+					"sets": ex_row[3], 
+					"reps": ex_row[4]
+				}
+				full_workout.append(entry)
+	return json.dumps(full_workout)
+
 
 def add_workout_plan(userID, workout_title, workout_descr, exercise_title, exercise_descr, exercise_reps, exercise_sets):
 	cursor = cnx.cursor()
@@ -199,5 +231,11 @@ def create_workout():
 	add_workout_plan(userID, workout_title, workout_descr, exercise_title, exercise_descr, exercise_reps, exercise_sets)
 
 	return flask.jsonify(success=True)
+
+
+@app.route('/retrieve_workouts', methods=["GET"])
+def retrieve_workouts():
+	return retrieve_all_workouts()
+
 # run app
 app.run()
