@@ -68,4 +68,9 @@ router.get('/triceps', (req, res) => {
   res.render('triceps', { title: 'Tricep Exercises' });
 });
 
+/* GET create workout page. */
+router.get('/create_workout', (req, res) => {
+  res.render('create_workout', { title: 'Create Workout' });
+});
+
 module.exports = router;
