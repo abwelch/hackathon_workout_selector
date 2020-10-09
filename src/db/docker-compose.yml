@@ -1,5 +1,6 @@
 version: "3.8"
 services:
+  ## MYSQL CONTAINER ##
   mysql_db:
     image: mysql:latest
     volumes:
@@ -13,6 +14,9 @@ services:
       MYSQL_DATABASE: "${MYSQL_DB}"
     ports:
       - 3306:3306
+    container_name: mysql
+  
+ ## MONGO DB CONTAINER ##
   mongodb:
     image: mongo:latest
     volumes:
@@ -24,3 +28,4 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD}"
     ports:
       - 8081:8081
+    container_name: mongo
