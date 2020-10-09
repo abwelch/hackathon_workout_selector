@@ -1,0 +1,39 @@
+<%- include('partials/head.ejs')%>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <%- include('partials/nav.ejs') %>
+        </header>
+        <br>
+        <br>
+        <div class="d-none d-md-block">
+            <% for (var i = 0; i < obj.length; i++) { %>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                  <div class="card shadow">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= obj[i].workout_title %></h5>
+                      <p class="card-text text-muted"><%= obj[i].workout_desc %></p>
+                      <h5 class="card-title"><%= obj[i].exercise_title %></h5>
+                      <p class="card-text text-muted"><%= obj[i].exercise_desc %></p>
+                      <p class="card-text text-muted"><%= obj[i].sets %></p>
+                      <p class="card-text text-muted"><%= obj[i].reps %></p>
+                      <a href="display_workouts" class="btn btn-primary">View Plan</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <% } %>
+        </div>
+        <div class="d-md-none">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    
+                </div>
+            </div>
+        </div>
+</body>
+
+<%- include('partials/end.ejs')%>
