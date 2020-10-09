@@ -35,6 +35,27 @@ cnx = mysql.connector.connect(**mysql_config)
 
 #### Helper Functions ####
 
+def add_workout_plan(userID, workout_title, workout_descr, exercise_title, exercise_descr, exercise_reps, exercise_sets):
+	cursor = cnx.cursor()
+
+	query = """
+			INSERT INTO workout_plans (upvotes, title, descr, total_exercises, creatorID)
+			VALUES ('{}', '{}', '{}', '{}', '{}')
+			""".format(1, workout_title, workout_descr, 1, userID)
+	cursor.execute(query)
+	cnx.commit()
+
+	# retrieve auto_incremented key for workout plan
+	workoutID = cursor.lastrowid
+	query = """
+			INSERT INTO exercises (title, descr, sets, reps, workoutID) 
+			VALUES ('{}', '{}', '{}', '{}', '{}')
+			""".format(exercise_title, exercise_descr, exercise_sets, exercise_reps, workoutID)
+	cursor.execute(query)
+	cnx.commit()
+
+	cursor.close()
+
 
 # check to see if the user already exists
 def user_already_exists(username:str) -> bool:
@@ -113,7 +134,7 @@ def sign_up():
 
 	if ( user_already_exists(uname) ):
 		# see if user exists. If they do return error. Username is identifying unique data for our schema, so everyone must have a globally unique username
-		flask.abort(409, description="User already exists")
+		flask.abort(411, description=uname)
 
 	else:
 		# If the user does not already exist, sign the new user up and return success.
@@ -152,5 +173,31 @@ def protected():
 	curr_user = flask_jwt_extended.get_jwt_identity()
 	return flask.jsonify(logged_in_as=curr_user), 200
 
+
+@app.route('/create_workout', methods=['POST'])
+def create_workout():
+	# get the json data from the request
+	try:
+		json_data = flask.request.json
+	except Exception as e:
+		flask.abort(400, description="Did not include all fields")
+	
+	# make sure the JSON has all required fields, if not abort and return error
+	if ( "userID" not in json_data ) or ( "workout_title" not in json_data ) or ( "workout_descr" not in json_data ) or ( "exercise_title" not in json_data ) or ( "exercise_descr" not in json_data ) or ( "exercise_sets" not in json_data ) or ( "exercise_reps" not in json_data ):
+		flask.abort(402, description="Did not include all fields")
+
+	# extract info
+	userID = json_data["userID"]
+	workout_title = json_data["workout_title"]
+	workout_descr = json_data["workout_descr"]
+	exercise_title = json_data["exercise_title"]
+	exercise_descr = json_data["exercise_descr"]
+	exercise_sets = json_data["exercise_sets"]
+	exercise_reps = json_data["exercise_reps"]
+	print(json_data)
+
+	add_workout_plan(userID, workout_title, workout_descr, exercise_title, exercise_descr, exercise_reps, exercise_sets)
+
+	return flask.jsonify(success=True)
 # run app
 app.run()
