@@ -1,5 +1,6 @@
 const request = require('request');
 var express = require('express');
+const { response } = require('express');
 var router = express.Router();
 
 /* GET home page. */
@@ -86,7 +87,6 @@ router.post('/create_workout', (req, res) => {
                 "exercise_sets": body.exercise_sets,
                 "exercise_reps": body.exercise_reps
               });
-console.log(json)
 
   var options = {
     url: "http://127.0.0.1:5000/create_workout",
@@ -94,11 +94,27 @@ console.log(json)
     'headers': {'Content-Type': 'application/json'},
     body: json
   };
+
   request(options, function (error, response) {
     if (error) throw new Error(error);
     console.log(response.body)});
 
   res.render('create_workout', {title: "Create Workout"});
+});
+
+/* GET display workout page. */
+router.get('/display_workouts', (req, res) => {
+  var options = {
+    url: "http://127.0.0.1:5000/retrieve_workouts",
+    method: "GET",
+    'headers': {'Content-Type': 'application/json'},
+  };
+
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+    obj = JSON.parse(response.body);
+    console.log(obj);
+    res.render('display_workouts', obj);});
 });
 
 module.exports = router;
