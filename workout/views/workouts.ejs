@@ -1,5 +1,5 @@
 <%- include('partials/head.ejs')%>
-
+<link rel="stylesheet" href="/stylesheets/card_images.css">
 <body>
   <div class="container-fluid">
     <header>
@@ -7,7 +7,78 @@
     </header>
     <br>
     <br>
-    <p>neat</p>>
+    <div class="d-none d-md-block">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card shadow">
+            <img class="card-img-top cardy-big" src="/images/public_workouts.jpg" alt="Public Workout Image">
+            <div class="card-body">
+              <h5 class="card-title">Public Workout Plans</h5>
+              <p class="card-text text-muted">View workout plans by other users.</p>
+              <a href="#" class="btn btn-primary">View Public</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow">
+            <img class="card-img-top cardy-big" src="/images/saved_workouts.jpg" alt="Saved Workout Image">
+            <div class="card-body">
+              <h5 class="card-title">Saved Workout Plans</h5>
+              <p class="card-text text-muted">View previously saved workout plans.</p>
+              <a href="#" class="btn btn-primary">View Saved</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow">
+            <img class="card-img-top cardy-big" src="/images/create_workouts.jpg" alt="Create Workout Image">
+            <div class="card-body">
+              <h5 class="card-title">Create Workout Plan</h5>
+              <p class="card-text text-muted">Create your own workout plan.</p>
+              <a href="create_workout" class="btn btn-primary">Create Plan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-md-none">
+      <div class="row">
+        <div class="col-12">
+          <div class="card shadow">
+            <img class="card-img-top cardy-big" src="/images/public_workouts.jpg" alt="Public Workout Image">
+            <div class="card-body">
+              <h5 class="card-title">Public Workout Plans</h5>
+              <p class="card-text text-muted">View workout plans by other users.</p>
+              <a href="#" class="btn btn-primary">View Public</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card shadow">
+            <img class="card-img-top cardy-big" src="/images/saved_workouts.jpg" alt="Saved Workout Image">
+            <div class="card-body">
+              <h5 class="card-title">Saved Workout Plans</h5>
+              <p class="card-text text-muted">View previously saved workout plans.</p>
+              <a href="#" class="btn btn-primary">View Saved</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card shadow">
+            <img class="card-img-top cardy-big" src="/images/create_workouts.jpg" alt="Create Workout Image">
+            <div class="card-body">
+              <h5 class="card-title">Create Workout Plan</h5>
+              <p class="card-text text-muted">Create your own workout plan.</p>
+              <a href="create_workout" class="btn btn-primary">Create Plan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 
