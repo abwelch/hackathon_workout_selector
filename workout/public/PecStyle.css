@@ -1,61 +1,72 @@
 body {
-    background-image: url("download3.jpg");
-    
-      /* Full height */
-      height: fit-content;
-    
-      /* Center and scale the image nicely */
-      
-      background-size: cover;
-      width: auto;
-      top: 10em;
-    }
+  background-color: grey;
+}
 
-    h1 {
-      color: rgb(226, 231, 235);
-      width:40em;
-      margin: 0 auto;
-      font-size: xx-large;
-      text-align: center;
-    }
-    #Description {
-      color: rgb(241, 245, 244);
-      background-color: black;
-      width:40em;
-      margin: 0 auto;
-      font-size: x-large;
-      text-align: center;
-    }
+.col-text {
+  height:20em;
+}
+.grid-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  flex-direction: row; 
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+}
+.col {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.col-left {
+  -webkit-box-ordinal-group:-1;
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1;
+}
+.col-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+}
+.Aligner-item {
+  width: 60%;
+}
+.col-image {
+  background-size: cover;
+  background-position:center center;
+}
 
-    p {
-      background-color: #121312;
-      border: none;
-      color: rgb(253, 252, 249);
-      width:40em;
-      margin: 0 auto;
-      font-size: x-large;
-      text-align: center;
-    }
+@media (max-width: 640px) {
+  .grid-flex {
+    height: 40em;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    flex-direction: column; 
+   }
+  .col {
+    order:vertical;
+  }
+  .col-left {
+    -webkit-box-ordinal-group:0;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+  }
+  .col-text div p {
+    padding: 1em;
+  }
+  .Aligner-item {
+    width: 90%;
+  }
+}
 
-    #Descriptions {
-      width: 0.5em;
-      position: absolute;
-      font-weight: 900;
-      right: 95em;
 
-    }
-  
-    button {
-      
-      color: white;
-      padding: 5px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      background-color: #647764;
-      left: 26em;
-      position: relative;
-    }
