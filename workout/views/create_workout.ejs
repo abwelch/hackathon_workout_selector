@@ -1,0 +1,90 @@
+<%- include('partials/head.ejs')%>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <%- include('partials/nav.ejs') %>
+        </header>
+        <br>
+        <br>
+        <div class="d-none d-md-block">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <form action="create_workout" method="post" id="create_form">
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="workout_title">Workout Title</label>
+                            <input type="text" class="form-control" id="workout_title"
+                                name="workout_title" placeholder="Enter workout title">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="workout_descr">Workout Description</label>
+                            <input type="text" name="workout_descr" class="form-control" placeholder="Enter workout description here...">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="exercise_title">Exercise Title</label>
+                            <input type="text" class="form-control" id="exercise_title"
+                                name="exercise_title" placeholder="Enter exercise title">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="exercise_descr">Exercise Description</label>
+                            <input type="text" name="exercise_descr" class="form-control" placeholder="Enter exercise description here...">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="exercise_sets">Exercise Sets</label>
+                            <input type="text" class="form-control" id="exercise_sets"
+                                name="exercise_sets" placeholder="Enter total sets">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="exercise_reps">Exercise Reps</label>
+                            <input type="text" class="form-control" id="exercise_reps"
+                                name="exercise_reps" placeholder="Enter reps per set">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="d-md-none">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <form action="create_workout" method="post" id="create_form">
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="workout_title">Workout Title</label>
+                            <input type="text" class="form-control" id="workout_title"
+                                name="workout_title" placeholder="Enter workout title">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="workout_descr">Workout Description</label>
+                            <input type="text" name="workout_descr" class="form-control" placeholder="Enter workout description here...">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="exercise_title">Exercise Title</label>
+                            <input type="text" class="form-control" id="exercise_title"
+                                name="exercise_title" placeholder="Enter exercise title">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="exercise_descr">Exercise Description</label>
+                            <input type="text" name="exercise_descr" class="form-control" placeholder="Enter exercise description here...">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="exercise_sets">Exercise Sets</label>
+                            <input type="text" class="form-control" id="exercise_sets"
+                                name="exercise_sets" placeholder="Enter total sets">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="exercise_reps">Exercise Reps</label>
+                            <input type="text" class="form-control" id="exercise_reps"
+                                name="exercise_reps" placeholder="Enter reps per set">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<%- include('partials/end.ejs')%>

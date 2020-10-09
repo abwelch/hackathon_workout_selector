@@ -1,31 +1,65 @@
 <%- include('partials/head.ejs')%>
 
-<body>
-  <div class="container-fluid">
-    <header>
-      <%- include('partials/nav.ejs') %>
-    </header>
-    <h1 class="text-center">Pectoralis Major</h1>
-    <p id="Description">A thick and fan-shaped like muscle, the pectoralis major is essentially the main component of a
-      male chest and lies beneath the breast tissue in women. Below this muscle lies the pecoralis minor. Responsible
-      for the movement of the shoulder joint primarily, the pectoralis major has four major actions.</p>
-    <div id="Descriptions">
-      <p>1) Push Up <br> Get down on all fours, placing your hands slightly wider than your shoulders. Straighten your
-        arms and legs.
-        Lower your body until your chest nearly touches the floor.
-        Pause, then push yourself back up.
-        Repeat. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-      <p>2) Cross-Body Mountain Climber <br> Step 1. Get into pushup position, and raise one knee toward your chest. As
-        it’s coming up, twist your hips to bring it toward your opposite elbow. Try to touch the elbow.
-        Step 2. Twist back, and repeat on the opposite side. Each knee touch counts as one rep. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-      <p>3) Dumbell Bench Press <br> Lie on the ground with your knees bent and feet flat on the floor.
-        Have a dumbbell in each hand with a reverse grip and position your arms at 45-degrees from your body.
-        Press the weights up and together above your chest, squeezing the muscles at the top of the movement. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+<header><button onclick="goBack()">Return to Home</button></header>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+
+<link rel="stylesheet" href="PecStyle.css"> 
+
+<!--Griglia alternata testo e immagine, resposive con flexbox.-->
+<section>
+  <div class="grid-flex">
+    <div class="col col-image" style="background-image: url(https://i.ytimg.com/vi/_l3ySVKYVJ8/maxresdefault.jpg);">
+    </div>
+    <div class="col col-text">
+      <div class="Aligner-item">
+
+        <p><p>1) Push Up <br> Get down on all fours, placing your hands slightly wider than your shoulders. Straighten your arms and legs. 
+          Lower your body until your chest nearly touches the floor. 
+          Pause, then push yourself back up. 
+          Repeat.  </p>
+          <button id="Workout" type="button" onclick="alert('Workout Added')">Add to Workout Plan</button>
+        </p>
+      </div>
     </div>
   </div>
-</body>
+  
+  <div class="grid-flex">
+    <div class="col col-image" style="background-image: url(https://www.spotebi.com/wp-content/uploads/2014/10/mountain-climbers-exercise-illustration.jpg);">
+      &nbsp;
+    </div>
+    <div class="col col-text col-left">
+      <div class="Aligner-item">
+        <p>2) Cross-Body Mountain Climber <br> Step 1. Get into pushup position, and raise one knee toward your chest. As it’s coming up, twist your hips to bring it toward your opposite elbow. Try to touch the elbow.
+          Step 2. Twist back, and repeat on the opposite side. Each knee touch counts as one rep.  </p>
+        <button id="Workout" type="button" onclick="alert('Workout Added')">Add to Workout Plan</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-flex">
+    <div class="col col-image" style="background-image: url(https://weighttraining.guide/wp-content/uploads/2016/05/Dumbbell-Bench-Press.png);">
+      &nbsp;
+    </div>
+    <div class="col col-text">
+      <div class="Aligner-item">
+        <p>3) Dumbell Bench Press <br> Lie on the ground with your knees bent and feet flat on the floor. 
+          Have a dumbbell in each hand with a reverse grip and position your arms at 45-degrees from your body. 
+          Press the weights up and together above your chest, squeezing the muscles at the top of the movement.  </p>
+        <button id="Workout" type="button" onclick="alert('Workout Added')">Add to Workout Plan</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  
+</section>
+
 
 <%- include('partials/end.ejs')%>
+
