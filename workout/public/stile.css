@@ -1,48 +1,28 @@
 body {
-  background-image: url("download3.jpg");
+  background-color: grey;
+  }
+
+#title {
+  position: absolute;
+  top: 1.75em;
+  left: 20em;
+}
+
+#description {
+  position: absolute;
+  top: 15em;
+  left: 13.5em;
+}
+
+p {
+  font-weight: bolder;
+  font-size: xx-large;
+  position: relative;
   
-    /* Full height */
-    height: fit-content;
-  
-    /* Center and scale the image nicely */
-    
-    background-size: cover;
-    width: auto;
-    top: 10em;
-  }
+}
 
+#BodyMap {
+  left: 25em;
+  position: absolute;
+}
 
-  h1 {
-    color: rgb(226, 231, 235);
-    width:30em;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  p {
-    color: red;
-  }
-
-  #front {
-    left: 27em;
-    position: relative;
-  }
-
-  
-
-
-  #Workout {
-    border: none;
-    position: absolute;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    top: 25em;
-    left: 40em;
-  }
