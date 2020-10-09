@@ -18,13 +18,14 @@ router.get('/register', (req, res) => {
 
 /* POST register plans page */
 router.post('/register', (req, res) => {
-  const { body } = req
-  var json = { 
-                username: body.user_name,
-                email: body.user_email,
-                password: body.user_password,
-                title: "back attack"
-              }
+  const { body } = req;
+  var json = JSON.stringify({ 
+                "username": body.user_name,
+                "email": body.user_email,
+                "password": body.user_password,
+              });
+  const https = require("https");
+
   res.render('back', json);
 });
 
