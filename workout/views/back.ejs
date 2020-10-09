@@ -1,42 +1,69 @@
 <%- include('partials/head.ejs')%>
 
+<header><button onclick="goBack()">Return to Home</button></header>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+
 <body>
-  <div class="container-fluid">
-    <header>
-      <%- include('partials/nav.ejs') %>
-    </header>
-    <h1 class="text-center">Back</h1>
-    <p id="Description">The muscles of the back are a group of strong, paired muscles that lie on the
-      posterior aspect of the trunk. They provide movements of the spine, stability to the trunk, as well as the
-      coordination between the movements of the limbs and trunk.</p>
-    <div id="Descriptions">
-      <p>1) DumbBell Bent over Row <br>With a dumbbell in each hand, bend over at about a 45-degree angle. Keep the back
-        straight throughout
-        the exercise. Brace your abdominals and breathe in.
-        Lift the weights straight up, exhaling. While lifting, the arms should go no higher than parallel with the
-        shoulders—slightly lower than the shoulders is fine. While lifting, try to keep the wrists from excessive extra
-        movement down or to the side. Do not squat down and up after the initial pose. No movement of the legs occurs
-        throughout
-        the exercise.
-        Lower the weights in a controlled manner while inhaling.
-        Remain bent over until all repetitions are complete. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-      <p>2) Kettlebell Swings <br> Place a kettlebell a couple of feet in front of you. Stand with your feet slightly
-        wider than
-        shoulder-width apart and bend your knees to lean forward and grab the handle with both hands. With your back
-        flat,
-        engage your lats to pull the weight between your legs (be careful with how deep you swing) then drive your hips
-        forward and
-        explosively pull the kettlebell up to shoulder height with your arms straight in front of you. Return to the
-        start position
-        and repeat without pauses. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-      <p>3) Farmers Walk <br> Hold two kettlebells or dumbbells by your side.
-        Keep your arms strong and walk short, quick steps as fast as possible a pre determined distance.
-        Turn around and walk back. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+  <link rel="stylesheet" href="Biceps.css"> 
+
+  <!--Griglia alternata testo e immagine, resposive con flexbox.-->
+  <section>
+    <div class="grid-flex">
+      <div class="col col-image" style="background-image: url(https://media1.popsugar-assets.com/files/thumbor/43YbqrOJ6-WjRVPQbOkVb8ZfpWc/fit-in/1200x630/filters:format_auto-!!-:strip_icc-!!-:fill-!white!-/2014/07/08/599/n/1922729/5232946bde3b5dd4_Bent-Over-Row/i/Bent-Over-Row.jpg);">
+      </div>
+      <div class="col col-text">
+        <div class="Aligner-item">
+  
+          <p>1) DumbBell Bent over Row <br>With a dumbbell in each hand, bend over at about a 45-degree angle. Keep the back straight and brace your abdominals and breathe in.
+           Lift the weights straight up, exhaling. While lifting, the arms should go no higher than parallel with the 
+           shoulders. While lifting, try to keep the wrists from excessive extra 
+           movement down or to the side. Do not squat down and up after the initial pose. No movement of the legs occurs throughout 
+           the exercise.
+           Lower the weights in a controlled manner while inhaling.
+           Remain bent over until all repetitions are complete. </p>
+         <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+        </div>
+      </div>
     </div>
-  </div>
+    
+    <div class="grid-flex">
+      <div class="col col-image" style="background-image: url(https://experiencelife.com/wp-content/uploads/2020/06/JA20-bid-kettlebellswing-1280x720.jpg);">
+        &nbsp;
+      </div>
+      <div class="col col-text col-left">
+        <div class="Aligner-item">
+          <p>2) Kettlebell Swings <br> Place a kettlebell a couple of feet in front of you. Stand with your feet slightly wider than 
+            shoulder-width apart and bend your knees to lean forward and grab the handle with both hands. With your back flat,
+             engage your lats to pull the weight between your legs (be careful with how deep you swing) then drive your hips forward and
+              explosively pull the kettlebell up to shoulder height with your arms straight in front of you. Return to the start position
+               and repeat without pauses.  </p>
+        <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="grid-flex">
+      <div class="col col-image" style="background-image: url(https://i.ytimg.com/vi/hx24PM6gXs8/maxresdefault.jpg);">
+        &nbsp;
+      </div>
+      <div class="col col-text">
+        <div class="Aligner-item">
+          <p>3) Farmers Walk <br> Hold two kettlebells or dumbbells by your side. 
+            Keep your arms strong and walk short, quick steps as fast as possible a pre determined distance.
+             Turn around and walk back.  </p>
+          <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    
+  </section>
 </body>
 
 <%- include('partials/end.ejs')%>

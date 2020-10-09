@@ -1,37 +1,68 @@
 <%- include('partials/head.ejs')%>
+<header><button onclick="goBack()">Return to Home</button></header>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
 
 <body>
-  <div class="container-fluid">
-    <header>
-      <%- include('partials/nav.ejs') %>
-    </header>
-    <h1 class="text-center">Shoulders</h1>
-    <p id="Description">The muscles of the shoulder support and produce the movements of the shoulder girdle.
-      They attach the appendicular skeleton of the upper limb to the axial skeleton of the trunk.
-      Four of them are found on the anterior aspect of the shoulder, whereas the rest are located on the shoulder’s
-      posterior aspect and in the back. </p>
-    <div id="Descriptions">
-      <p>1) Shoulder Press <br> Stand with the bar on your front shoulders, and your hands next to your shoulders
-        Press the bar over your head, until it’s balanced over your shoulders and mid-foot
-        Lock your elbows at the top, and shrug your shoulders to the ceiling.
-        Hold the bar for a second at the top. Then lower it back to your front shoulders and repeat.
-      </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-      <p>2) Dumbbell Lateral Raise <br> Grab a set of dumbbells and stand straight up with the dumbbells at your sides.
-        Your palms should be facing your body. Hold the dumbbells slightly off your body.
-        Slowly raise the dumbbells up to around shoulder height. It's important that you do not let your wrists go above
-        your elbows
-        while raising the weight, as this will take the work off the side delts and put it on the front delts.
-        Pause at the top of the movement, and then slowly lower the weight back to the starting position.
-      </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-      <p>3) Dumbbell Reverse Fly <br> Grab a pair of dumbbells and stand with your feet hip-width apart and your knees
-        slightly bent.
-        Hinge forward at the hips and let your arms hang straight down from your shoulders, palms facing your body.
-        Raise both arms out to the sides as you squeeze your shoulder blades together. Return to start. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+  <link rel="stylesheet" href="Biceps.css"> 
+
+  <!--Griglia alternata testo e immagine, resposive con flexbox.-->
+  <section>
+    <div class="grid-flex">
+      <div class="col col-image" style="background-image: url(https://cdn2.coachmag.co.uk/sites/coachmag/files/2017/01/dumbbell-overhead-press.jpg);">
+      </div>
+      <div class="col col-text">
+        <div class="Aligner-item">
+  
+          <p>1) Shoulder Press <br> Stand with the bar on your front shoulders, and your hands next to your shoulders
+            Press the bar over your head, until it’s balanced over your shoulders and mid-foot
+            Lock your elbows at the top, and shrug your shoulders to the ceiling.
+            Hold the bar for a second at the top. Then lower it back to your front shoulders and repeat.
+            </p>
+          <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
+    
+    <div class="grid-flex">
+      <div class="col col-image" style="background-image: url(https://i.pinimg.com/originals/fe/15/60/fe15606ebaa159247788484def7b5ec6.png);">
+        &nbsp;
+      </div>
+      <div class="col col-text col-left">
+        <div class="Aligner-item">
+          <p>2) Dumbbell Lateral Raise <br> Grab a set of dumbbells and stand straight up with the dumbbells at your sides.
+            Your palms should be facing your body. Hold the dumbbells slightly off your body.
+            Slowly raise the dumbbells up to around shoulder height. It's important that you do not let your wrists go above your elbows 
+            while raising the weight, as this will take the work off the side delts and put it on the front delts.
+            Pause at the top of the movement, and then slowly lower the weight back to the starting position.
+             </p>
+        <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="grid-flex">
+      <div class="col col-image" style="background-image: url(https://cdn1.coachmag.co.uk/sites/coachmag/files/styles/16x9_480/public/2016/07/4-3a-dumbbell-reverse-flye.jpg?itok=0KKGvh1u&timestamp=1469450440);">
+        &nbsp;
+      </div>
+      <div class="col col-text">
+        <div class="Aligner-item">
+          <p>3) Dumbbell Reverse Fly <br>  Grab a pair of dumbbells and stand with your feet hip-width apart and your knees slightly bent. 
+            Hinge forward at the hips and let your arms hang straight down from your shoulders, palms facing your body.
+             Raise both arms out to the sides as you squeeze your shoulder blades together. Return to start.  </p>
+          <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    
+  </section>
 </body>
 
 <%- include('partials/end.ejs')%>

@@ -1,44 +1,70 @@
 <%- include('partials/head.ejs')%>
 
-<body>
-  <div class="container-fluid">
-    <header>
-      <%- include('partials/nav.ejs') %>
-    </header>
-    <h1 class="text-center">Triceps</h1>
-    <p id="Description">The triceps, also triceps brachii (Latin for "three-headed muscle of the arm"), is a large
-      muscle on the
-      back of the upper limb of many vertebrates. It consists of 3 parts: the medial, lateral, and long head.
-      It is the muscle principally responsible for extension of the elbow joint (straightening of the arm).</p>
-    <div id="Descriptions">
-      <p>1) Close-Grip Bench Press <br> Grab a barbell with an overhand grip, keeping your index fingers on the inside
-        edge of the
-        knurling (i.e. the rough and textural part of the bar)
-        Slightly arch your back to create minor space between your lower back and the bench.
-        Life the bar off the rack and hold it above your sternum, keeping your arms completely straight and your elbows
-        tucked
-        at 45-degree angles on either side.
-        Lower the bar until it lightly touches your body, pause, and then drive through at your feet as you press the
-        bar upward.
-        For the last set, consider reducing the weight and then increasing the number of reps, pushing yourself to
-        failure. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-      <p>2) Lying Triceps Extension <br> Grabbing the inner grip, press an EZ bar over your chest in the overhand grip
-        position.
-        Extend your arms straight up.
-        Keeping your elbows tucked in and your arms perpendicular to the floor, gradually lower the bar until it’s just
-        above your
-        forehead by about an inch.
-        Slowly bring your arms back to the starting position without locking your elbows.
-        Repeat. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
-      <p>3) Diamond Push-Ups <br> Assume the push-up position, but with your hands together in a diamond-like formation
-        (i.e. index fingers and thumbs touching).
-        Keeping your back straight, lower your chest until it almost touches the floor.
-        Rise and repeat. </p>
-      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+<header><button onclick="goBack()">Return to Home</button></header>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+
+<link rel="stylesheet" href="Abs.css"> 
+
+<!--Griglia alternata testo e immagine, resposive con flexbox.-->
+<section>
+  <div class="grid-flex">
+    <div class="col col-image" style="background-image: url(https://cdn1.coachmag.co.uk/sites/coachmag/files/styles/16x9_480/public/2016/02/2.2.jpg?itok=9O8lFFsn&timestamp=1456313113);">
+    </div>
+    <div class="col col-text">
+      <div class="Aligner-item">
+
+        <p>1) Close-Grip Bench Press <br> Grab a barbell with an overhand grip, keeping your index fingers on the inside edge of the 
+          knurling.
+          Slightly arch your back to create minor space between your lower back and the bench.
+          Life the bar off the rack and hold it above your sternum, keeping your arms completely straight and your elbows tucked 
+          at 45-degree angles on either side.
+          Lower the bar until it lightly touches your body, pause, and then drive through at your feet as you press the bar upward.
+           </p>
+        <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+      </div>
     </div>
   </div>
-</body>
+  
+  <div class="grid-flex">
+    <div class="col col-image" style="background-image: url(https://weighttraining.guide/wp-content/uploads/2016/11/lying-one-arm-dumbbell-triceps-extension.png);">
+      &nbsp;
+    </div>
+    <div class="col col-text col-left">
+      <div class="Aligner-item">
+        <p>2) Lying Triceps Extension <br> Grabbing the inner grip, press an EZ bar over your chest in the overhand grip position.
+          Extend your arms straight up.
+          Keeping your elbows tucked in and your arms perpendicular to the floor, gradually lower the bar until it’s just above your
+           forehead by about an inch.
+          Slowly bring your arms back to the starting position without locking your elbows.
+          Repeat.  </p>
+      <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-flex">
+    <div class="col col-image" style="background-image: url(https://fitnessvolt.com/wp-content/uploads/2018/04/diamond-push-up.jpg);">
+      &nbsp;
+    </div>
+    <div class="col col-text">
+      <div class="Aligner-item">
+        <p>3) Diamond Push-Ups <br> Assume the push-up position, but with your hands together in a diamond-like formation
+          (i.e. index fingers and thumbs touching).
+         Keeping your back straight, lower your chest until it almost touches the floor.
+         Rise and repeat. </p>
+       <button id="Workout" type="button" onclick="alert('Hello world!')">Add to Workout Plan</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  
+</section>
 
 <%- include('partials/end.ejs')%>
