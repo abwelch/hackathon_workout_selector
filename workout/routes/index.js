@@ -1,3 +1,4 @@
+const request = require('request');
 var express = require('express');
 var router = express.Router();
 
@@ -19,14 +20,22 @@ router.get('/register', (req, res) => {
 /* POST register plans page */
 router.post('/register', (req, res) => {
   const { body } = req;
-  var json = JSON.stringify({ 
+  var json = { 
                 "username": body.user_name,
                 "email": body.user_email,
                 "password": body.user_password,
-              });
-  const https = require("https");
+              };
 
-  res.render('back', json);
+  var options = {
+    url: "http://127.0.0.1:5000/signup",
+    method: "POST",
+    'headers': {'Content-Type': 'application/json'},
+    body: JSON.stringify(json)
+  };
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body)});
+  res.render('back', {title: "Registration"});
 });
 
 /* GET pec exercise page. */
